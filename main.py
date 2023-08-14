@@ -73,6 +73,12 @@ async def query(username):
     for l in response.json()["listings"]:
         landing_url = COMPASS_URL + l["canonicalPageLink"]
         print(landing_url)
+        bedroomsNumber = l["size"]["bedrooms"]
+        print(bedroomsNumber)
+        fullBathRoomNumber = l["size"]["fullBathrooms"]
+        print(fullBathRoomNumber)
+        imageUrl = l["media"][0]["thumbnailUrl"]
+        print(imageUrl)
         properties.append(landing_url)
     return quart.Response(response=json.dumps(properties), status=200)
 
